@@ -6,7 +6,7 @@ from .models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ("title", "content", "username", "create_datetime", "id")
+        fields = ("id", "username", "create_datetime", "title", "content")
         extra_kwargs = {
             "id": {"read_only": True},
             "create_datetime": {
@@ -19,7 +19,7 @@ class PostSerializer(serializers.ModelSerializer):
 class PostUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ("title", "content", "username", "create_datetime", "id")
+        fields = ("id", "username", "create_datetime", "title", "content")
         extra_kwargs = {
             "id": {
                 "read_only": True,
