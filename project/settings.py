@@ -28,6 +28,7 @@ DEBUG = bool(int(os.getenv("DEBUG", "1")))
 
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS").split(",")]
 
+CORS_ALLOW_ALL_ORIGINS = bool(int(os.getenv("CORS_ALLOW_ALL_ORIGINS", "1")))
 
 # Application definition
 
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "drf_yasg",
+    "corsheaders",
     "rest_framework",
     "posts",
 ]
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
